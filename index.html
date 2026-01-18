@@ -3,19 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do App</title>
+    <title>Simple PDF Editor</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Load pdf.js for rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <!-- Load pdf-lib for manipulation -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <!-- Download helper -->
+    <script src="https://unpkg.com/downloadjs@1.4.7/download.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>My To-Do List</h1>
-        <div class="input-group">
-            <input type="text" id="taskInput" placeholder="Add a new task...">
-            <button id="addBtn">Add</button>
+    <div class="app-container">
+        <header>
+            <h1>PDF Page Manager</h1>
+            <p>Upload a PDF, select pages, rotate, or delete them.</p>
+        </header>
+
+        <div class="toolbar">
+            <div class="file-upload">
+                <label for="pdfInput" class="btn btn-primary">Select PDF</label>
+                <input type="file" id="pdfInput" accept=".pdf" hidden>
+                <span id="fileName">No file selected</span>
+            </div>
+
+            <div class="actions" id="actions" style="display: none;">
+                <button id="rotateLeftBtn" class="btn btn-secondary">↺ Rotate Left</button>
+                <button id="rotateRightBtn" class="btn btn-secondary">↻ Rotate Right</button>
+                <button id="deleteBtn" class="btn btn-danger">🗑 Delete Selected</button>
+                <div class="divider"></div>
+                <button id="saveBtn" class="btn btn-success">💾 Save New PDF</button>
+            </div>
         </div>
-        <ul id="taskList">
-            <!-- Tasks will be added here dynamically -->
-        </ul>
+
+        <div id="loader" class="loader" style="display: none;">Loading PDF...</div>
+
+        <div id="gridContainer" class="grid-container">
+            <!-- Thumbnails will be injected here -->
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
