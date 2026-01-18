@@ -41,40 +41,75 @@ p {
     border-radius: 8px;
     margin-bottom: 20px;
     border: 1px solid #e9ecef;
+    gap: 15px;
 }
 
-.file-upload {
+.file-section {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 #fileName {
     font-style: italic;
     color: #666;
+    margin-left: 10px;
 }
 
 .actions {
     display: flex;
     gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.action-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.edit-group {
+    background: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.edit-group input[type="text"] {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 120px;
+}
+
+.edit-group input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+    vertical-align: middle;
 }
 
 .divider {
     width: 1px;
     height: 30px;
     background: #ccc;
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -82,6 +117,17 @@ p {
     color: white;
 }
 .btn-primary:hover { background-color: #2980b9; }
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+    padding: 6px 14px; /* Adjust for border width */
+}
+.btn-outline:hover {
+    background-color: #3498db;
+    color: white;
+}
 
 .btn-secondary {
     background-color: #95a5a6;
@@ -151,6 +197,18 @@ p {
     top: 5px;
     left: 5px;
     background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: none;
+}
+
+.text-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(46, 204, 113, 0.9);
     color: white;
     padding: 2px 6px;
     border-radius: 4px;
